@@ -1,3 +1,0 @@
-<?PHP
-PHPINFO
-11222
