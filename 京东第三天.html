@@ -1,0 +1,148 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>itcastmark:京东第三天</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="1-">1. 焦点图部分所用知识点</h1>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>圆角矩形</td>
+<td>border-radius: 左上角 右上角 右下角  左下角。</td>
+</tr>
+</tbody>
+</table>
+<p>负值自己的宽度一半（固定定位也是如此）</p>
+<h1 id="2-">2. 背景半透明</h1>
+<p style="font-weight: 700">1.强烈推荐：盒子背景半透明  background: rgba(r,g,b,alpha);</p>
+<p>r,g,b 是红绿蓝的颜色，  alpha 是透明度的意思，取值范围是 0~1 之间。  这个是让盒子的背景半透明，盒子里面内容不半透明</p>
+<p style="font-weight: 700">2.元素半透明</p>
+<p>此属性是盒子半透明，不是背景半透明哦，因为里面的内容也一起半透明了</p>
+正常浏览器：  opacity:0.5;   取值范围是 0~1 之间 表示透明度  0% 到 100%
+<p>ie8及其以下的版本 用filter:Alpha(opacity=50) ；   // opacity值为0 到 100</p>
+<p>因此，低版本的 ie浏览器，我们不需要透明了，直接采用优雅降级的做法。</p>
+<p>background: gray;</p>
+<p>background: rgba(0,0,0,.2);</p>
+<p>写上两句 背景， 低版本ie只执行gray， 其他浏览器执行 半透明下面这一句。</p>
+<h1 id="3-">3. 优雅降级和渐进增强</h1>
+<p>什么是渐进增强（progressive enhancement）、优雅降级（graceful degradation）呢？</p>
+<p><b>渐进增强 progressive enhancement：</b></p>
+<p>针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</p>
+<p> 类似 爬山，由低出往高处爬</p>
+<p>  <img src="images/pa.png" width="400" /></p>
+<p>  <b>优雅降级 graceful degradation：</b></p>
+<p>一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</p>
+<p>类似蹦极，由高处往低处下落</p>
+<p><img src="images/xia.jpg" /></p>
+<p>　　区别：渐进增强是向上兼容，优雅降级是向下兼容。</p>
+<p>个人建议： 现在互联网发展很快， 连微软公司都抛弃了ie浏览器，转而支持 edge这样的高版本浏览器，我们很多情况下没有必要再时刻想着低版本浏览器了，而是一开始就构建完整的效果，根据实际情况，修补低版本浏览器问题。</p>
+
+ie6 以下的版本首页改动下：
+
+https://h5.m.jd.com/dev/3dm8aE4LDBNMkDfcCaRxLnVQ7rqo/index.html
+
+<img src="images/ie6.png"  width="700" />
+
+<p>等后面我们学了JavaScript 来检测用户浏览器版本，如果是ie6及其以下的版本，我们就跳到这个页面上。</p>
+
+
+<h1 id="4-css-w3c-">4. CSS W3C 统一验证工具</h1>
+<p>CssStats 是一个在线的 CSS 代码分析工具</p>
+<pre><code>网址是：  http://www.cssstats.com/
+</code></pre><p>如果你想要更全面的，这个神奇，你值得拥有：</p>
+<p>W3C 统一验证工具：    <a href="http://validator.w3.org/unicorn/">http://validator.w3.org/unicorn/</a>  ☆☆☆☆☆</p>
+<p>因为它可以检测本地文件哦！！</p>
+<h1 id="5-css-">5. CSS 压缩</h1>
+<p>通过上面的检测没有错误，为了提高加载速度和节约空间（相对来说，css量很少的情况下，几乎没啥区别），可以通过css压缩工具把css进行压缩。</p>
+<p> w3c css压缩  可以去站长之家进行快速压缩。</p>
+<p> <a href="http://tool.chinaz.com/Tools/CssFormat.aspx">http://tool.chinaz.com/Tools/CssFormat.aspx</a>  </p>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
