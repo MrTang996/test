@@ -1,2 +1,3 @@
 <?PHP
-PHPinfo
+PHPINFO
+11222
